@@ -57,13 +57,15 @@ class JoblyApi {
 
   //** Apply to a job */
 
-
   //** Register a new user */
-
-  
 
   // ** Login a user */
 
+  static async register(data) {
+    let res = await this.request("auth/register", data, "post");
+    this.token = res.token;
+    return res.token;
+  }
   static async login(data) {
     let res = await this.request("auth/token", data, "post");
     this.token = res.token;

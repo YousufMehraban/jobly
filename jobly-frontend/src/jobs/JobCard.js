@@ -10,7 +10,7 @@ const JobCard = ({ job }) => {
 
   async function handleClick(event) {
     // event.preventDefault();
-    await JoblyApi.apply(username, job.id);
+    await JoblyApi.applyToJob(username, job.id);
     await setApplication([...application, job.id]);
   }
 

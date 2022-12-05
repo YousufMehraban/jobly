@@ -14,6 +14,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState("");
   const [token, setToken] = useLocalStorage(JoblyUserToken);
   const [application, setApplication] = useState("");
+  const [loading, setLoading] = useState(true);
 
   async function logIn(data) {
     const res = await JoblyApi.login(data);
@@ -32,16 +33,6 @@ function App() {
     setToken(null);
     JoblyApi.token = null;
   }
-  useEffect(() => {
-    async function getUserApplicationIds() {
-      if (token) {
-        let { username } = jwt.decode(token);
-        const res = await JoblyApi.getUser(username);
-        setApplication(res.applications);
-      }
-    }
-    getUserApplicationIds();
-  }, []);
 
   useEffect(() => {
     async function getUser() {
@@ -50,12 +41,15 @@ function App() {
         JoblyApi.token = token;
         const res = await JoblyApi.getUser(username);
         setCurrentUser(res);
+        setApplication(res.applications);
       }
+      setLoading(false);
     }
     getUser();
-  }, [token]);
-
-  return (
+  }, []);
+  return loading ? (
+    ""
+  ) : (
     <BrowserRouter>
       <userContext.Provider
         value={{ currentUser, setCurrentUser, application, setApplication }}

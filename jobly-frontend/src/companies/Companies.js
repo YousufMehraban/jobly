@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Companies.css";
 import JoblyApi from "../API.js";
-import CompanyDetail from "./CompanyCard";
+import CompanyCard from "./CompanyCard";
 import SearchForm from "../forms/SearchForm";
 
 const Companies = () => {
@@ -27,7 +27,7 @@ const Companies = () => {
       </div>
       {companies
         ? companies.map((company) => {
-            return <CompanyDetail company={company} key={company.handle} />;
+            return <CompanyCard company={company} key={company.handle} />;
           })
         : "loading........."}
     </div>
