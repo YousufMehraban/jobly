@@ -7,6 +7,7 @@ const LogInForm = ({ logIn }) => {
   const initialVal = { username: "", password: "" };
   const [formData, setFormData] = useState(initialVal);
   const history = useHistory();
+  
   const handleChange = (event) => {
     setFormData((data) => {
       return { ...data, [event.target.name]: event.target.value };

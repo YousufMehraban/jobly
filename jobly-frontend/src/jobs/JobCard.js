@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Card, CardText, CardTitle, Button } from "reactstrap";
-import JoblyApi from "../API";
+import JoblyApi from "../api";
 import userContext from "../helpers/userContext";
 import "./Jobs.css";
 
@@ -9,9 +9,9 @@ const JobCard = ({ job }) => {
   const username = currentUser.username;
 
   async function handleClick(event) {
-    // event.preventDefault();
+    event.preventDefault();
     await JoblyApi.apply(username, job.id);
-    await setApplication([...application, job.id]);
+    setApplication([...application, job.id]);
   }
 
   return (

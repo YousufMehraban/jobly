@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import userContext from "../helpers/userContext";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import JoblyApi from "../API";
+import JoblyApi from "../api";
 import { Link, useHistory } from "react-router-dom";
 
 const Profile = () => {
@@ -9,6 +9,7 @@ const Profile = () => {
   const [formData, setFormData] = useState(initialVal);
   const { currentUser, setCurrentUser } = useContext(userContext);
   const history = useHistory();
+
   function handleChange(event) {
     setFormData((data) => {
       return { ...data, [event.target.name]: event.target.value };

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import JoblyApi from "../API";
+import JoblyApi from "../api";
 import "./SignUpForm.css";
 
-const SignUpForm = ({signUp}) => {
-  const history = useHistory()
+const SignUpForm = ({ signUp }) => {
+  const history = useHistory();
   const formInitialVal = {
     username: "",
     password: "",
@@ -20,11 +20,12 @@ const SignUpForm = ({signUp}) => {
       return { ...data, [e.target.name]: e.target.value };
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    let token = signUp(formData);
-    setFormData(formInitialVal)
-    history.push('/companies')
+    signUp(formData);
+    setFormData(formInitialVal);
+    history.push("/companies");
   };
 
   return (
@@ -92,9 +93,7 @@ const SignUpForm = ({signUp}) => {
               onChange={handleChange}
             />
           </FormGroup>
-          <Button color="primary" >
-            Submit
-          </Button>
+          <Button color="primary">Submit</Button>
         </FormGroup>
       </Form>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import JoblyApi from "../API";
-import Job from "../jobs/JobCard";
+import JoblyApi from "../api";
+import JobCard from "../jobs/JobCard";
 import "../jobs/Jobs.css";
 
 const CompanyJobs = () => {
@@ -30,7 +30,7 @@ const CompanyJobs = () => {
       <h3>Avialable Jos:</h3>
       {jobs
         ? jobs.map((job) => {
-            return <Job job={job} key={job.id} />;
+            return <JobCard job={job} key={job.id} />;
           })
         : "No job posted yet..."}
     </div>

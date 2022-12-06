@@ -44,38 +44,6 @@ const Routes = ({ logIn, signUp }) => {
         <Redirect to="/" />
       </Switch>
     </div>
-
-    // <div>
-    //   {currentUser ? (
-    //     <Switch>
-    //       <Route exact path="/jobs">
-    //         <Jobs />
-    //       </Route>
-    //       <Route exact path="/companies/:handle">
-    //         <CompanyJobs />
-    //       </Route>
-    //       <Route exact path="/companies">
-    //         <Companies />
-    //       </Route>
-    //     </Switch>
-    //   ) : (
-    //     <Switch>
-    //       <Route exact path="/login">
-    //         <LogInForm logIn={logIn} />
-    //       </Route>
-    //       <Route exact path="/">
-    //         <Home />
-    //       </Route>
-    //       <Route exact path="/signup">
-    //         <SignUpForm signUp={signUp} />
-    //       </Route>
-    //       <Route exact path="/logout">
-    //         <LogOut logOut={logOut} />
-    //       </Route>
-    //       <Redirect to="/" />
-    //     </Switch>
-    //   )}
-    // </div>
   );
 };
 
